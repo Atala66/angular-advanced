@@ -1,58 +1,38 @@
 import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+import { TimerService } from './timer.service';
+
 
 @Component({
   selector: 'app-timer',
   templateUrl: './timer.component.html',
-  styleUrls: ['./timer.component.scss']
+  styleUrls: ['./timer.component.scss'],
+  providers: [TimerService]
 })
 export class TimerComponent implements OnInit, OnDestroy {
 
   @Output() onComplete = new EventEmitter<void>();
-  @Input() init:number = 20;
+  @Input() init: number;
+  public countdownEndSubscription: Subscription = null;
 
-  private countdownTimerRef:any = null;
-  public countdown:number = 0;
 
-  constructor() { }
+  constructor(
+	  public timerSrv: TimerService
+  ) { }
 
   ngOnInit(): void {
-    this.startCountdown();
+    this.timerSrv.restartCountdown(this.init);
+	this.countdownEndSubscription = this.timerSrv.countdownEnd$.subscribe(() => {
+         this.onComplete.emit();
+	});
   }
 
-  ngOnDestroy():void{
-    this.clearTimeout();
+
+  ngOnDestroy(): void {
+	  this.timerSrv.destroyComponent();
+	  this.countdownEndSubscription.unsubscribe();
   }
 
-  startCountdown(){
-    if(this.init && this.init >0){
-      this.clearTimeout();
-      this.countdown = this.init;
-      this.doCountdown();
-    }
-  }
-
-  private doCountdown(){
-    this.countdownTimerRef = setTimeout(()=>{
-      this.countdown = this.countdown -1;
-      this.processCountdown();
-    }, 1000);
-  }
-
-  private processCountdown(){
-    if(this.countdown == 0){
-      this.onComplete.emit();
-      console.log("--countdown end--");
-    }
-    else{
-      this.doCountdown();
-    }
-  }
-
-  private clearTimeout(){
-    if(this.countdownTimerRef){
-      clearTimeout(this.countdownTimerRef);
-      this.countdownTimerRef = null;
-    }
-  }
+ 
 
 }
