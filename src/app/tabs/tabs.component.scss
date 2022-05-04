@@ -1,9 +1,8 @@
-
-:host{
+:host {
     width: 100%;
 }
 
-ul{
+ul {
     z-index: 50;
     display: flex;
     list-style-type: none;
@@ -11,26 +10,25 @@ ul{
     text-transform: uppercase;
     margin: 0;
     padding: 20px 10px 2px 10px !important;
-    position: fixed;
+    // position: fixed;
     width: 100%;
     background-color: #f8f8f8;
-
-    li{
+    li {
+        cursor: pointer;
         width: 100%;
         text-align: center;
         padding-bottom: 12px;
         font-weight: 600;
         color: #333;
         opacity: 0.5;
-
-        &.active{
-            border-bottom: 4px solid #333;            
+        &.active {
+            border-bottom: 4px solid #bf404080;
             opacity: 1;
         }
     }
 }
 
-.content{
+.content {
     top: 80px;
     position: relative;
 }

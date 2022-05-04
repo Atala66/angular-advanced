@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Tab } from "./tab.interface";
+
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { TabsComponent } from 'app/tabs/tabs.component';
+import { Tab } from './tab.interface';
 
 @Component({
   selector: 'app-tab',
@@ -8,12 +10,24 @@ import { Tab } from "./tab.interface";
 })
 export class TabComponent implements OnInit, Tab {
 
-  @Input() title:string;
-  public isActive:boolean = false;
+  @Output()onClick: EventEmitter<any> =  new EventEmitter<void>();
+  @Input() title: string;
+  public isActive: boolean = false;
 
-  constructor() { }
+  constructor(
+	  // public tabs: TabsComponent
+  ) { }
 
   ngOnInit() {
-  }
+	  // this.tabs.addTab(this);
+    }
+	public testContentChild() {
+		console.log(' testeando metodo a traves del content child');
+	}
+
+
+	public outputTest() {
+		this.onClick.emit();
+	}
 
 }

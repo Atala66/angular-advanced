@@ -1,4 +1,5 @@
-export interface Tab{
-    isActive:boolean;
-    title:string;
+export interface Tab {
+    isActive: boolean;
+    title: string;
+// tslint:disable-next-line:eofline
 }

@@ -1,12 +1,12 @@
 <ul>
-  <li *ngFor="let tab of tabs" 
-      [ngClass]="{'active':tab.isActive}" 
-      (click)="selectTab(tab)">
-      {{tab.title}}
-  </li>
-</ul> 
+    <li *ngFor="let tab of tabs" [ngClass]="{'active':tab.isActive}" (click)="selectTab(tab)">
+        {{tab.title}}
+    </li>
+</ul>
 
+
+
+<!--contenido proyectado -->
 <div class="content">
-  <ng-content></ng-content>
-</div> 
-
+    <ng-content></ng-content>
+</div>

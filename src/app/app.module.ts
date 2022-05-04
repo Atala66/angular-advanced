@@ -11,8 +11,6 @@ import { AlertViewComponent } from './alert-view/alert-view.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { TabComponent } from './tab/tab.component';
 import { SimpleAlertViewComponent } from './simple-alert-view/simple-alert-view.component';
-import { AppRoutingModule } from './app-routing.module';
-
 
 
 @NgModule({
@@ -30,7 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     FormsModule,
     HttpModule
-    // AppRoutingModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

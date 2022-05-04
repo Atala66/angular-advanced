@@ -22,7 +22,7 @@ export class TimerComponent implements OnInit, OnDestroy {
 	 la propiedad no existe pero es como si existiera ver html
     **/
    get progress( ) {
-	return  this.init -  this.countdown / this. init * 100;
+	return  this.init - this.countdown / this. init * 100;
   }
 
 
@@ -38,7 +38,7 @@ export class TimerComponent implements OnInit, OnDestroy {
 
 	this.countdownSubscription = this.timerSrv.countdownSource$
 	.subscribe((data) => {
-		console.log ( 'data calling every time it updates:', data);
+		// console.log ( 'data calling every time it updates:', data);
 		this.countdown = data;
 	});
   }

@@ -1,21 +1,18 @@
-:host{
-    &>div{
+:host {
+    &>div {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-    
-        h1{
+        h1 {
             font-family: sans-serif;
             width: 100%;
             text-align: center;
         }
-
-        app-timer{
+        app-timer {
             flex-grow: 1;
         }
     }
-
-    .add{
+    .add {
         position: fixed;
         color: white;
         bottom: 20px;
@@ -26,9 +23,44 @@
         border: none;
         font-size: 30px;
         background-color: #DDD;
-
-        &:active{
-            background-color:#AAA;
+        &:active {
+            background-color: #AAA;
         }
+    }
+    .footer {
+        margin-top: 40px;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        .cancel-button {
+            margin-right: 10px;
+            background-color: #777;
+            &:active {
+                background-color: #444;
+            }
+        }
+    }
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+        border: 1px solid #2d9fd9;
+        color: #a0d18c;
+        width: 250px;
+        height: 30px;
+        padding-left: 10px;
+    }
+    input[type=text]:focus {
+        outline: none;
+        border: 1px solid #a0d18c;
+        color: #2d9fd9;
     }
 }
