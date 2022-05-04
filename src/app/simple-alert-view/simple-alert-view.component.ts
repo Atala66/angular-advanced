@@ -6,22 +6,20 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./simple-alert-view.component.scss']
 })
 export class SimpleAlertViewComponent implements OnInit {
+	@Input() message: string;
+	@Input() title: string;
+	public visible: boolean = false;
 
   constructor() { }
 
-  @Input() message:string;
-  @Input() title:string;
-  public visible:boolean = true;
+  ngOnInit() {}
 
-  ngOnInit() {
-  }
-
-  public dismiss(){
+  public dismiss() {
     this.visible = false;
   }
 
-  public show(){
+  public show() {
     this.visible = true;
-  }  
+  }
 
 }

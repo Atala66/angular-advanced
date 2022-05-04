@@ -13,11 +13,10 @@
             Others not available
         </app-tab>
     </app-tabs>
-
-
-
     <button class="add" (click)="showAddTimer()">+</button>
 
+
+    <!--- INIT:    @CONTENT CHILD && @CONTENT CHILDREN  --->
     <app-alert-view [hidden]="!isTimerVisible" (onCancel)="hideAddTimer()" (onSubmit)="hideAddTimer()">
         <!--  ng-content selected by class -->
         <div header>
@@ -36,9 +35,8 @@
         </div>
     </app-alert-view>
 
-
     <!-- Reuse of alert view to show other data-->
-    <app-alert-view [hidden]="!isEndTimerAlertVisible">
+    <!-- <app-alert-view [hidden]="!isEndTimerAlertVisible">
 
         <div header>
             Timer ended
@@ -50,5 +48,10 @@
 
             <button (click)="hideEndTimerAlert()">Ok</button>
         </div>
-    </app-alert-view>
+    </app-alert-view> -->
+
+    <!---  END:  @VIEW CHILD && @VIEW CHILDREN  --->
+
+    <app-simple-alert-view title="Timer Ended" message="Your countdown has ended"></app-simple-alert-view>
+    <app-simple-alert-view></app-simple-alert-view>
 </div>
